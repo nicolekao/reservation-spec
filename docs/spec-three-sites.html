@@ -342,15 +342,15 @@
   body{background:#fff}
   .rd-wrap{max-width:1040px;margin:0 auto;padding:28px 22px 80px}
   .content .pane,.pane{display:block!important;animation:none!important;margin-bottom:10px}
-  .cover{border:1px solid var(--line);border-radius:16px;padding:26px;margin-bottom:26px;box-shadow:var(--shadow)}
-  .cover .eyebrow{font-size:11.5px;letter-spacing:.16em;color:var(--brand);font-weight:700;text-transform:uppercase}
-  .cover h1{font-size:30px;margin:8px 0 0;letter-spacing:-.02em}
-  .cover .lead{color:var(--muted);margin:10px 0 0;font-size:15px}
-  .cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-  .cbox{border:1px solid var(--line2);border-radius:12px;padding:14px 16px;background:var(--brand-softer)}
-  .cbox h4{margin:0 0 6px;font-size:13px;color:var(--brand-2)}
-  .cbox li{font-size:13.5px;margin:4px 0}
-  .cover .note{margin-top:16px;font-size:13px;background:var(--chg-bg);color:var(--chg);border-radius:10px;padding:11px 14px}
+  .cover{border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-bottom:24px;box-shadow:var(--shadow)}
+  .cover h1{font-size:28px;margin:0;letter-spacing:-.02em}
+  .metarow{margin-top:14px;display:grid;gap:6px;font-size:13.5px;color:var(--ink)}
+  .metarow i{display:inline-block;min-width:44px;font-style:normal;color:var(--muted);font-size:12.5px;margin-right:10px}
+  .metarow .ph2{display:inline-block;margin-left:8px;font-size:11.5px;padding:1px 8px;border-radius:99px;background:var(--chg-bg);color:var(--chg)}
+  .warnbar{margin-top:16px;font-size:13.5px;background:var(--chg-bg);color:var(--chg);border-radius:10px;padding:11px 14px}
+  .warnbar a{color:var(--chg);font-weight:700}
+  .cover .fine{margin:14px 0 0;font-size:12.5px;line-height:1.75;color:var(--muted)}
+  .cover .fine b{color:var(--ink)}
   .toc{border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:30px}
   .toc h3{margin:0 0 14px;font-size:16px}
   .toc-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -377,33 +377,14 @@
 <div class="rd-wrap" id="top">
 
 <div class="cover">
-  <div class="eyebrow">交付給開發團隊 · 第二階段</div>
   <h1>課程預約 SaaS · 三站規格</h1>
-  <p class="lead">租戶老師後台、平台管理後台、平台行銷與註冊官網，三站皆屬<b>第二階段</b>範圍。內容與<b>規格總覽</b>同一份來源，版本日期 2026-10-06。</p>
-  <div class="cover-grid">
-    <div class="cbox"><h4>這份包含什麼</h4>
-      <ul class="clean">
-        <li>三站各自的功能盤點、規格表、權限、邊界情況、User Stories、測試策略與驗收條件</li>
-        <li>附錄：統一語彙（名詞定義）、增修紀錄（含開工前待確認）</li>
-      </ul></div>
-    <div class="cbox"><h4>這份不包含什麼</h4>
-      <ul class="clean">
-        <li>租戶對外官網、租戶管理後台、基礎建設五章（多租戶隔離、開放 API、法遵、備援、稽核日誌）</li>
-        <li>文中引用到但未附的章節，會標成 <span class="reflink off">灰字<sup>†</sup></span>，完整版在 <code>規格總覽.html</code></li>
-      </ul></div>
-    <div class="cbox"><h4>開工前先看</h4>
-      <ul class="clean">
-        <li><a href="#ch45">增修紀錄</a> 的「開工前待確認（七項）」——<b>沒有答案就先不要動對應的程式</b></li>
-        <li>同一份增修紀錄的最新變更：登入方式改為 OTP、移除 2FA 備援碼、平台超管最少兩位</li>
-      </ul></div>
-    <div class="cbox"><h4>每一章怎麼讀</h4>
-      <ul class="clean">
-        <li>先看「問題與方案」知道為什麼要做，再看規格表</li>
-        <li>結尾的 <b>驗收條件</b>（☐）就是完成定義，測試案例照它寫</li>
-        <li><b>範疇外</b>一節是明確不做的事，不要自行補</li>
-      </ul></div>
+  <div class="metarow">
+    <div><i>範圍</i>租戶老師後台 · 平台管理後台 · 平台行銷與註冊官網<span class="ph2">第二階段</span></div>
+    <div><i>版本</i>2026-10-06</div>
+    <div><i>來源</i>規格總覽.html（同一份內容，本冊僅抽出這三站）</div>
   </div>
-  <div class="note">有兩章在本冊中重複出現同一份內容：<b>權限管理</b>與<b>多排課模式</b>在老師後台這一組，是租戶後台同一章的老師視角副本；<b>訂閱與計費</b>由平台管理後台那一組收錄，行銷官網的註冊付款引用同一章。</div>
+  <div class="warnbar">開工前先看 <a href="#ch45">增修紀錄</a> 的「開工前待確認（七項）」，未確認的項目先不要動對應的程式。最新變更：登入方式改為一次性驗證碼（OTP）、移除 2FA 備援碼、平台超管最少保留兩位。</div>
+  <p class="fine">各章結尾的<b>驗收條件</b>（☐）即完成定義，<b>範疇外</b>為明確不做的項目。引用到本冊未附章節時標為 <span class="reflink off">灰字<sup>†</sup></span>（未附：租戶對外官網、租戶管理後台、基礎建設五章）。老師後台組的權限管理與多排課模式為租戶後台同章的老師視角副本；訂閱與計費僅收錄一次，行銷官網的註冊付款引用同一章。</p>
 </div>
 <div class="toc"><h3>目錄</h3><div class="toc-cols"><div class="toc-g"><h4>租戶老師後台</h4><ol class="clean"><li><a href="#ch28"><b>1</b>功能盤點</a></li><li><a href="#ch29"><b>2</b>權限管理（老師邊界）</a></li><li><a href="#ch30"><b>3</b>多排課模式（看排課）</a></li><li><a href="#ch31"><b>4</b>老師可用性與排班</a></li></ol></div><div class="toc-g"><h4>平台管理後台</h4><ol class="clean"><li><a href="#ch32"><b>1</b>功能盤點</a></li><li><a href="#ch33"><b>2</b>平台管理後台</a></li><li><a href="#ch34"><b>3</b>訂閱與計費</a></li><li><a href="#ch35"><b>4</b>垂直範本（範本管理）</a></li><li><a href="#ch36"><b>5</b>用量計量</a></li><li><a href="#ch37"><b>6</b>客服與工單</a></li></ol></div><div class="toc-g"><h4>平台行銷官網</h4><ol class="clean"><li><a href="#ch38"><b>1</b>功能盤點</a></li><li><a href="#ch39"><b>2</b>開通與 Onboarding</a></li><li><a href="#ch44"><b>3</b>行銷與註冊官網</a></li></ol></div><div class="toc-g"><h4>附錄</h4><ol class="clean"><li><a href="#ch3"><b>1</b>統一語彙</a></li><li><a href="#ch45"><b>2</b>增修紀錄</a></li></ol></div></div></div>
 <div class="grp-head grp-coach" id="ggrp-coach"><span>租戶老師後台</span></div>
