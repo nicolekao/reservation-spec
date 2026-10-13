@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>規格更新報告：官網與租戶管理後台</title>
+<style>
+  :root{
+    --bg:#ffffff; --card:#ffffff; --ink:#1e2330; --muted:#6b7180;
+    --line:#e6e6ef; --line2:#f0f0f6;
+    --brand:#7c3aed; --brand-2:#6d28d9; --brand-soft:#f3efff; --brand-softer:#faf8ff;
+    --th-bg:#f3efff; --th-ink:#6d28d9;
+    --new:#0a7d3a; --new-bg:#e3f6ea;
+    --chg:#b26a00; --chg-bg:#fff3e0;
+    --fix:#b3261e; --fix-bg:#fdeceb;
+    --shadow:0 1px 2px rgba(20,20,40,.05),0 2px 8px rgba(20,20,40,.04);
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;
+    font-family:"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+  .topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;
+    padding:12px 22px;background:var(--card);border-bottom:1px solid var(--line);}
+  .topbar b{font-size:.98rem}
+  .topbar small{color:var(--muted);font-size:.75rem;display:block;margin-top:-2px}
+  .topbar .date{margin-left:auto;color:var(--muted);font-size:.78rem;white-space:nowrap;}
+  .wrap{max-width:960px;margin:0 auto;padding:34px 26px 100px;}
+  h1{font-size:1.65rem;margin:6px 0 8px;}
+  p.intro{color:var(--muted);font-size:1rem;margin:0 0 24px;}
+  h2{border-left:4px solid var(--brand);padding-left:12px;font-size:1.3rem;margin:44px 0 14px;}
+  h3{font-size:1.05rem;color:var(--brand-2);margin:26px 0 10px;}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin:0 0 18px;}
+  table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:640px;background:var(--card);}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  th{background:var(--th-bg);color:var(--th-ink);font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.before{color:var(--muted);width:33%;}
+  td.topic{white-space:nowrap;font-weight:700;width:1%;}
+  .tag{font-size:.74rem;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;display:inline-block;margin-right:6px;}
+  .tag.new{color:var(--new);background:var(--new-bg);}
+  .tag.chg{color:var(--chg);background:var(--chg-bg);}
+  .tag.fix{color:var(--fix);background:var(--fix-bg);}
+  .callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);
+    border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 18px;}
+  ul.clean{margin:.3rem 0;padding-left:1.2rem;} ul.clean li{margin:.4rem 0;}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 22px;font-size:.85rem;color:var(--muted);align-items:center;}
+  .summary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 10px;}
+  @media(max-width:680px){.summary-cards{grid-template-columns:1fr;}}
+  .scard{background:var(--brand-softer);border:1px solid var(--line);border-radius:12px;padding:14px 18px;}
+  .scard b{font-size:1.5rem;color:var(--brand-2);display:block;}
+  .scard span{font-size:.82rem;color:var(--muted);}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <span style="font-size:1.2rem">📋</span>
+  <span><b>規格更新報告：官網與租戶管理後台</b><small>課程預訂 SaaS · 規格總覽修訂對照</small></span>
+  <span class="date">修訂期間：2026-08-11 – 08-12</span>
+</header>
+
+<div class="wrap">
+<h1>規格更新報告</h1>
+<p class="intro">本報告整理「規格總覽」中<b>官網（租戶對外站）</b>與<b>租戶管理後台</b>兩站的修訂內容：原規格（2026-08-03 版）與修訂後的差異對照。修訂依據為 SimplyBook 競品實測的落地轉化與第一階段開發範圍的確立。</p>
+
+<div class="summary-cards">
+  <div class="scard"><b>2 站</b><span>第一階段開發範圍：官網＋租戶管理後台（老師後台、平台後台、行銷官網延至第二階段）</span></div>
+  <div class="scard"><b>9 章</b><span>本輪有實質修訂的規格章節（官網 5 章＋管理後台 4 章，另含跨站的開通精靈）</span></div>
+  <div class="scard"><b>3 份</b><span>新增交付物：競品研究章、SimplyBook 實測 HTML（含 21 張截圖）、官網互動範本 HTML</span></div>
+</div>
+
+<div class="legend">
+  圖例：<span class="tag new">新增</span>原本沒有的規格
+  <span class="tag chg">擴充</span>原有規格的補強
+  <span class="tag fix">修正</span>原規格的矛盾或錯誤
+</div>
+
+<h2>壹、全域決策（影響兩站）</h2>
+<div class="tablewrap"><table>
+<tr><th style="width:1%;white-space:nowrap;">決策</th><th>內容</th></tr>
+<tr><td class="topic">開發階段</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>第一階段只做<b>官網＋租戶管理後台</b>兩個網站</li><li>老師後台、平台管理後台、行銷官網延至第二階段</li><li>過渡期：租戶開通與訂閱由平台方手動處理、老師排班由管理後台代管</li><li>總覽頁列有 🚩 說明，延後站別掛「第二階段」標籤</li></ul></td></tr>
+<tr><td class="topic">產品型態</td><td>純 RWD 響應式網頁，不做原生 App（口頭決策，未列入規格文件）。</td></tr>
+<tr><td class="topic">文件慣例</td><td>競品素材只保留在第 41 章「競品研究」與獨立的實測 HTML；規格本文一律以自己的語言敘述，已移除全部競品引用。</td></tr>
+<tr><td class="topic">寫作口徑</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>讀者是工程師：淺顯但精確，使用工程用語（UTC 儲存、timezone-aware），不用生活化比喻</li><li>三項以上的內容一律條列，不擠成一句</li><li>不放「很重要」「不能省」等語氣補充句</li></ul></td></tr>
+</table></div>
+
+<h2>貳、官網（租戶對外站）</h2>
+
+<h3>1. 官網功能盤點</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>一頁式租戶首頁</td><td class="before">未定義首頁結構</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>Hero（品牌名＋主視覺＋預約按鈕）</li><li>品牌介紹</li><li><b>營業時間表（含休息時段）</b></li><li>聯絡資訊＋地圖</li><li>資料來自開通設定，開站即有完整首頁</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>預約完成頁</td><td class="before">未定義</td><td>預約代碼＋免登入自助管理（查詢／取消／改期／加入日曆）</td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>版型庫</td><td class="before">只有主題（顏色）概念</td><td>先選課程主題（行業），再從相符版型挑頁面套版與配色</td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>通知信</td><td class="before">「下單/通知信套該租戶品牌值」一句</td><td>通知信五事件（預約創建／取消／變更／提醒／服務前提醒）套租戶品牌，範本可自訂</td></tr>
+<tr><td class="topic"><span class="tag fix">修正</span>CMS 對應</td><td class="before">內容頁 CMS 誤連到「報表與分析」</td><td>改為「—」（沿用舊機制，無獨立規格）</td></tr>
+</table></div>
+
+<h3>2. 主題引擎</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>三層選擇</td><td class="before">只有「顏色角色＋內建主題庫＋自訂主題」，沒有版型（版面骨架）概念</td><td><b>主題（行業）→ 版型 → 配色</b>三層選擇：<ul class="clean" style="margin:.2rem 0 0;"><li>預設 5 個課程主題：運動健身／美妝美容／才藝／音樂／語言補教（平台維護、可擴充）</li><li>都不符可<b>自行建立主題</b>（自訂名稱＋通用預設版型）</li><li>選定主題後只顯示相符版型</li><li>每套版型附<b>約 3 組預設配色</b></li></ul></td></tr>
+<tr><td class="topic"><span class="tag fix">修正</span>範疇界線</td><td class="before">「本期只換風格、不換版面結構」——與版型庫概念矛盾</td><td>版面結構可「從版型庫挑現成的」，但不能自由編輯（拖拉編輯器仍屬範疇外）</td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>設定流程與驗收</td><td class="before">驗收 5 條（選風格／自訂色／還原／隔離／同步信件證書）</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>設定流程加「換版型與配色」步驟（依租戶主題優先列出相符版型、可展開全部）</li><li>非功能需求加「版型數」</li><li>驗收 5 條 → 8 條（新增：主題過濾版型、自建主題、換版型內容不動）</li></ul></td></tr>
+</table></div>
+
+<h3>3. 信件與證書品牌</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>通知信五事件</td><td class="before">只定義品牌值如何套進信件版面，沒有事件與範本系統</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>五事件：預約創建／取消／變更／提醒（預設前 24 小時，可調可關）／服務前提醒（預設前 1 小時，可加多組）</li><li>每事件有<b>平台預設範本</b>，開通即用</li><li>租戶可自訂主旨＋內文；一鍵還原預設；假資料預覽</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>證書內文與主題可編輯</td><td class="before">證書只自動套品牌值，內文寫死</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>標題、頒發詞（含變數）、落款可編輯</li><li>內建數套證書樣式可挑；顏色可單獨覆寫</li><li>即時預覽（含 PDF）</li></ul></td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>變數系統</td><td class="before">無</td><td>信件與證書<b>共用同一套變數</b>：[學員姓名][課程名稱][日期時間][預約代碼][取消連結] 等——工程上一套引擎</td></tr>
+<tr><td class="topic"><span class="tag fix">修正</span>快照範圍</td><td class="before">發證只快照「品牌值」</td><td>快照擴為「品牌值＋內文＋樣式」；重印讀快照、改範本不影響已發出的證書</td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>退路與驗收</td><td class="before">驗收情境 5 條</td><td>補「變數缺值」退路（絕不輸出變數原字樣）、草稿不讀擴及證書範本；驗收擴至 9 條</td></tr>
+</table></div>
+
+<h3>4. 多排課模式</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>排程三層模型</td><td class="before">只有四種排課型態，沒有與營業時間、老師可用性的層級關係</td><td><b>營業時間 → 老師可用性 → 課程排課</b>，一層管一件事、由粗到細。學員要約到一個時段，得同時過三關：
+<ul class="clean" style="margin:.4rem 0 0;">
+<li><b>店有開</b>——落在營業時間內、不在休息時段。排課超出營業時間：警示但允許（特殊活動可破例）</li>
+<li><b>老師有空</b>——老師該時段可上課；排課撞到老師不可用時段：擋下</li>
+<li><b>真的有開課</b>——該時段有排出場次且名額未滿；同老師／同場地同時段互撞：擋下</li>
+</ul>
+少過一關，該時段就不出現在前台</td></tr>
+<tr><td class="topic"><span class="tag fix">修正</span>時區規則</td><td class="before">「前台依學員當地時區顯示」——與預約流程的租戶時區規則矛盾</td><td>統一為：<ul class="clean" style="margin:.2rem 0 0;"><li>前台預設<b>租戶時區</b>＋時區名標示</li><li>跨國線上課「加註」學員當地時間</li><li>預約成立與計算一律以場地時區為準</li></ul></td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>與課程／營業時間銜接</td><td class="before">場次時長／名額來源未定義；循環假日只有「可指定跳過日期」</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>場次時長與名額<b>預設取自課程建立的四欄位</b>，可逐場覆寫</li><li>循環排課<b>自動跳過特別日公休</b></li><li>「加入行事曆」分工釐清：單堂歸預約流程、整份課表訂閱為選配</li></ul></td></tr>
+</table></div>
+
+<h3>5. 可設定預約流程</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>流程介面行為（1.4）</td><td class="before">只定義步驟可組合，沒有介面行為規格</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>步驟麵包屑：已選項摘要、回上一步後續作廢重算</li><li>過期／額滿時段不顯示，並受「預約前置時間」「開放預約範圍」約束</li><li>時區標示「我們的時間」</li><li><b>政策同意勾的是租戶政策、非平台條款</b></li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>完成頁與免登入自助管理（1.5）</td><td class="before">未定義</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>預約代碼：8 碼、排除易混淆字元</li><li>代碼＋Email 即可查詢／取消／改期（受政策約束）</li><li>「我的預約」頁常駐</li><li>加入日曆五選項，事件<b>帶滿</b>課名／時間／地點／代碼／取消連結</li><li>完成即寄確認信</li></ul></td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>選老師步驟</td><td class="before">「指定老師（含指定老師費）」一句</td><td>顯示老師卡片：照片（無照片用預設頭像）＋名稱＋簡介，資料來自老師資料設定</td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>驗收與測試</td><td class="before">驗收 4 條</td><td>驗收 7 條、User Stories +2、測試 +3（自助管理驗證、日曆事件完整、回上一步重算）</td></tr>
+</table></div>
+
+<h2>參、租戶管理後台</h2>
+
+<h3>1. 功能盤點與資訊架構</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>左側選單樹</td><td class="before">沒有後台資訊架構規格</td><td>選單分層（日常營運在上、設定在下）：<ul class="clean" style="margin:.2rem 0 0;"><li><b>日常營運</b>：首頁／行事曆／預約管理／課程／老師／客戶／場地／報表</li><li><b>網站門面</b>：主題版型／品牌／網域／內容頁</li><li><b>設定</b>：營業時間／預約流程／欄位／政策／通知信／證書／金流／幣別稅語言／成員權限</li><li><b>底部</b>：方案與帳單＋設定精靈常駐入口</li></ul>行為規則：<ul class="clean" style="margin:.2rem 0 0;"><li>依角色過濾（畫面藏＋後端擋）</li><li>第二階段功能不顯示</li><li>RWD 漢堡選單</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>盤點列</td><td class="before">缺「客戶名單」「導引精靈」列</td><td>補「首次登入導引精靈」（MVP ⭐）與「客戶名單：訂購人與學員資料、報名紀錄、匯出」</td></tr>
+</table></div>
+
+<h3>2. 租戶自助設定（本輪最大幅擴充）</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>課程品項（1.4.2）</td><td class="before">列了名稱／場地／分類／方案等設定項，無建立流程、無時長人數費用欄位</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>建立課程的表單只要四個欄位：名稱／時間長度／人數／費用（TWD），填完即可上架</li><li>填的「費用」會在背後自動建立一個「單堂固定價」方案並綁定課程；<b>課程資料表不設價格欄位</b>，價格只存在方案上——改費用＝改那個方案的價格</li><li>「人數」是每場次的容量上限（額滿判定用），與方案「人數階梯」的計價人數無關</li><li>上架／下架做成開關（switch），點了立即生效、不走發佈</li><li>刪除做成垃圾桶按鈕：二次確認；有未來場次或未結訂單就擋下；刪除為軟刪除（歷史訂單仍查得到課名）</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>課程｜方案呈現</td><td class="before">未定義</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>「課程品項」與「方案」做在同一頁、用 <b>tab 切換</b></li><li>課程編輯面板內嵌方案區塊：可勾選既有方案、也可就地快速建一個單堂價</li><li>方案清單每筆顯示「N 個課程使用中」——被綁定中的方案不可刪，要先解綁</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>營業時間與休息時間（1.4.7）</td><td class="before">沒有營業時間概念（原系統時段寫死）</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>每週一張基準表：每天一列（開關＝營業／公休）＋起訖時間，可「複製到其他天」</li><li>每天可加<b>多段休息時段</b>（如午休 12:00–13:00），須落在營業區間內</li><li>特別日（國定假日、臨時公休）逐日覆寫，<b>優先於每週基準</b></li><li>可約時段的計算公式：<b>營業區間 − 休息區間</b></li><li>排課排到營業時間外：跳警示但放行（特殊活動可破例）</li><li>前台首頁的營業時間表要把休息時段顯示出來</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>時段顯示與預約時間窗</td><td class="before">未定義</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>開課前 X 小時停止線上預約（預設 1 小時）——到點後該場次前台不再顯示可約</li><li>只開放未來 N 天內的場次供預約（預設 60 天）——超過的顯示「尚未開放」</li><li>時間一律以 24 小時制顯示</li></ul></td></tr>
+<tr><td class="topic"><span class="tag new">新增</span>老師資料（1.4.8）</td><td class="before">沒有老師資料設定規格</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>建老師只要填名稱；介紹、照片都選填</li><li>沒照片時前台自動以「名稱首字＋色塊」當頭像，版面不留空</li><li>老師可綁定「能教哪些課程」，前台選老師步驟據此過濾</li><li>上下架開關＋垃圾桶刪除，護欄與課程相同（有未來場次擋刪、可先把場次改派給別的老師、刪除為軟刪除）</li><li>老師檔案與登入帳號是兩件事分開存：老師不一定有後台帳號</li></ul></td></tr>
+<tr><td class="topic"><span class="tag fix">修正</span>草稿／發佈適用範圍</td><td class="before">「設定要發佈才生效」與上下架「即點即生效」矛盾</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>後台操作分兩類，生效方式不同：</li><li><b>設定類</b>（主題、政策、預約流程、報名欄位、營業時間、信件證書範本）：存草稿、按「發佈」才對前台生效，可還原前一版</li><li><b>日常營運類</b>（課程／老師上下架、排序、排課調課）：點了就生效，不走草稿發佈</li></ul></td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>護欄與變更影響</td><td class="before">刪除保護只涵蓋場地／課程</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>刪除前的檢查範圍加上兩種對象：老師、被課程綁定中的方案</li><li>縮短營業時間或新增休息時段：已成立的預約與場次照常，只影響之後產生的新時段；若與既有未來排課衝突，列出警示清單給租戶處理、不自動取消</li><li>User Stories 8 → 13 條、驗收條件同步補齊</li></ul></td></tr>
+</table></div>
+
+<h3>3. 金流帳號租戶化</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>現場付款模式</td><td class="before">只有綁定後的線上收款流程；「先跳過金流上線」沒有對應運作方式</td><td>未綁金流時：<ul class="clean" style="margin:.2rem 0 0;"><li>前台付款步驟改顯示「現場付款」說明</li><li>訂單標記<b>「現場付款待收」</b></li><li>後台可人工標記已收</li><li>綁定金流後，新訂單自動切回線上收款</li></ul></td></tr>
+</table></div>
+
+<h3>4. 垂直範本</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>範本內容</td><td class="before">涵蓋稱呼／分類／等級／範例課程／方案／政策／流程／主題／欄位</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>加入<b>相符版型清單</b>（開通時據此過濾套版）</li><li>範例課程同時是導引精靈「推薦課程快捷標籤」的來源</li><li>空白（通用）範本同時服務「想從頭自己來」與「自行建立主題」兩種租戶</li></ul></td></tr>
+</table></div>
+
+<h3>5. 開通與 Onboarding（跨兩站，精靈屬第一階段）</h3>
+<div class="tablewrap"><table>
+<tr><th>項目</th><th>原本</th><th>修訂後</th></tr>
+<tr><td class="topic"><span class="tag new">新增</span>導引精靈五步驟</td><td class="before">只有「一步步引導設定」的原則性描述</td><td>具體五步：<ul class="clean" style="margin:.2rem 0 0;"><li><b>① 主題與品牌</b>：5 主題 → 相符套版 → 約 3 配色＋招牌名 Logo</li><li><b>② 營業時間</b></li><li><b>③ 老師</b>：只填名字</li><li><b>④ 課程</b>：四欄位＋推薦快捷標籤；自動建預設場地「本店」</li><li><b>⑤ 完成</b>：即時預覽＋雙出口</li></ul>行為規則：<ul class="clean" style="margin:.2rem 0 0;"><li>每步可跳過、進度保存、可重入</li><li>結束後 activation checklist 接手</li><li>首登只給精靈一件事、不疊彈窗</li><li>第一階段掛在<b>管理後台首次登入</b>；第二階段接自助註冊後直接沿用</li></ul></td></tr>
+<tr><td class="topic"><span class="tag chg">擴充</span>選主題機制</td><td class="before">「選行業範本（才藝／音樂／健身／空白）」</td><td><ul class="clean" style="margin:.2rem 0 0;"><li>預設 5 個課程主題</li><li>都不符 → 自行建立主題（自訂名稱＋通用範本＋通用預設版型）</li><li>套版清單依主題過濾</li><li>子網域即時驗證可用性</li></ul></td></tr>
+</table></div>
+
+<h2>肆、文件品質修訂（全文掃描，2026-08-12）</h2>
+<p style="color:var(--muted);font-size:.95rem;">確立「寫作口徑」後，對規格總覽全文做了一輪掃描改寫——不改變任何規格語意，只改敘述方式：</p>
+<div class="tablewrap"><table>
+<tr><th style="width:1%;white-space:nowrap;">修訂類型</th><th>內容</th></tr>
+<tr><td class="topic">口語句改寫</td><td>約 25 處（含重複掛載副本），例：<ul class="clean" style="margin:.2rem 0 0;">
+<li>「這是通用化最硬的骨頭」→「通用化中複雜度最高的部分」</li>
+<li>「從一張白紙開始建，門檻太高、賣不動」→「從空設定開始建置，導入成本過高」</li>
+<li>「用狀態管理一路走」→「以訂閱狀態機管理整個生命週期」</li>
+<li>「隔離由系統統一把關，不靠工程師自己記得」→「系統層統一強制，不依賴各支程式各自實作」</li>
+<li>「字體會跑掉」→「未內嵌時開啟端缺字型會被系統字體替換，版面走樣」</li>
+<li>「自己捏角色」→「自訂角色／更細粒度的權限」；「提供逃生門」→「提供還原途徑」</li>
+</ul></td></tr>
+<tr><td class="topic">時區小節重寫</td><td>多排課模式 1.4 改為工程敘述：<ul class="clean" style="margin:.2rem 0 0;">
+<li>儲存採 UTC＋時區代碼（如 <code>Asia/Taipei</code>），顯示時轉換；學員裝置時區不參與計算</li>
+<li>循環展開須 timezone-aware：跨夏令切換日維持當地牆上時間不變，不可用固定 UTC 偏移量累加</li>
+<li>移除「跨國租戶很重要」「日本現場、跨國線上課，時區處理不能省」等語氣句</li>
+</ul></td></tr>
+<tr><td class="topic">三層模型白話化</td><td>「前台可選時段＝三層取交集」改為三關條列：店有開／老師有空／真的有開課且未滿——少過一關該時段不顯示</td></tr>
+<tr><td class="topic">編號串轉條列</td><td>各章 1.1「方案」欄的「1.…&lt;br&gt;2.…」編號串共 10 處，全部轉為標準條列</td></tr>
+<tr><td class="topic">逐節條列化</td><td>密集格子（三項以上連寫）逐節拆為條列：<ul class="clean" style="margin:.2rem 0 0;">
+<li><b>多排課模式</b>：1.1 方案、1.3 循環規則與說明框、1.4 時區顯示、1.7 每堂資訊、1.8 邊界情況</li>
+<li><b>主題引擎</b>：1.2 三層選擇（全表）、1.3 內建主題庫</li>
+<li><b>可設定預約流程</b>：1.4 流程介面行為、1.5 完成頁與免登入自助管理（含日曆欄位二層清單）</li>
+<li><b>租戶自助設定</b>：1.2 設定的來源、1.4.2 課程品項、1.4.7 營業時間與休息時間</li>
+<li><b>報表與分析</b>：1.2 報表指標</li>
+</ul></td></tr>
+<tr><td class="topic">同步更新</td><td>本報告的密集格子（21 格）同步條列化；導引精靈步驟①更名「主題與品牌」</td></tr>
+</table></div>
+
+<h2>伍、新增交付物</h2>
+<ul class="clean">
+<li><b>競品研究章</b>（規格總覽第 41 章）——SimplyBook 兩輪實測的結構化歸檔；規格本文的競品引用已全數移除，素材集中於此。</li>
+<li><b>simplybook-registration-flow.html</b>——實測完整記錄的獨立網頁版，含 21 張實測截圖（畫面 A–V）。</li>
+<li><b>官網範本.html</b>——依修訂後規格製作的可互動示範：一頁式首頁、四步預約精靈（麵包屑／午休排除／租戶時區）、完成頁（預約代碼／加日曆五選項／免登入自助管理），主題以顏色角色變數驅動。</li>
+</ul>
+
+<div class="callout"><b>結語</b>：本輪修訂把兩站規格從「功能清單」推進到「工程可直接開發」的顆粒度——建立流程有必填欄位與預設值、操作有開關與刪除護欄、顯示有時區與時段規則、跨章矛盾（時區、草稿發佈、費用與方案）均已裁決並寫死。第一階段（官網＋租戶管理後台）規格已自洽，可交付開發。</div>
+
+</div>
+</body>
+</html>

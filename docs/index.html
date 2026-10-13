@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課程預約 SaaS · 規格文件</title>
+<style>
+  :root{
+    color-scheme:light;
+    --bg:#ffffff; --card:#ffffff; --ink:#1e2330; --muted:#6b7180;
+    --line:#e6e6ef; --line2:#f0f0f6;
+    --brand:#7c3aed; --brand-2:#6d28d9; --brand-soft:#f3efff; --brand-softer:#faf8ff;
+    --shadow:0 1px 2px rgba(20,20,40,.05),0 2px 8px rgba(20,20,40,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:44px 22px 80px}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;color:var(--brand);font-weight:700;text-transform:uppercase}
+  h1{font-size:clamp(26px,4vw,34px);margin:10px 0 0;letter-spacing:-.02em}
+  .lead{color:var(--muted);margin:12px 0 0;max-width:62ch}
+  .meta{margin-top:14px;font-size:13px;color:var(--muted)}
+  h2{font-size:14px;letter-spacing:.08em;color:var(--muted);margin:36px 0 12px;font-weight:700}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
+  a.card:hover{border-color:var(--brand);transform:translateY(-1px)}
+  a.card b{display:block;font-size:17px}
+  a.card span.d{display:block;color:var(--muted);font-size:13.5px;margin-top:6px}
+  .tag{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:99px;
+    background:var(--brand-soft);color:var(--brand-2);margin-bottom:8px}
+  .box{border:1px solid var(--line2);border-radius:12px;padding:16px 18px;background:var(--brand-softer);font-size:14px}
+  .box h3{margin:0 0 8px;font-size:14px}
+  .box ul{margin:0;padding-left:18px}
+  .box li{margin:5px 0;color:var(--muted)}
+  .box li b{color:var(--ink)}
+  footer{margin-top:30px;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">內部文件</div>
+  <h1>課程預約 SaaS · 規格文件</h1>
+  <p class="lead">把原本單租戶的課程預約系統改造成多租戶 SaaS 的開發規格。以下文件內容同源，依閱讀對象分成兩種版本。</p>
+  <p class="meta">版本日期 2026-10-06</p>
+
+  <h2>文件</h2>
+
+  <a class="card" href="spec-three-sites.html">
+    <span class="tag">交付開發</span>
+    <b>三站規格</b>
+    <span class="d">租戶老師後台、平台管理後台、平台行銷與註冊官網，攤平成一份長文件，附統一語彙與增修紀錄。給要動工的人看這一份。</span>
+  </a>
+
+  <a class="card" href="spec-overview.html">
+    <span class="tag">完整版</span>
+    <b>規格總覽</b>
+    <span class="d">全部 45 章，依官網、租戶管理後台、老師後台、平台管理後台、行銷官網分組，左側可切換章節。要查某一章的細節看這一份。</span>
+  </a>
+
+  <a class="card" href="spec-update-report.html">
+    <b>規格更新報告</b>
+    <span class="d">規格歷次調整的摘要。</span>
+  </a>
+
+  <h2>閱讀方式</h2>
+  <div class="box">
+    <ul>
+      <li>開工前先看增修紀錄的<b>開工前待確認（七項）</b>，沒有答案的部分先不要動對應的程式。</li>
+      <li>每一章先看「問題與方案」了解為什麼要做，再看規格表。</li>
+      <li>章節結尾的<b>驗收條件</b>（☐）就是完成定義，測試案例照它寫。</li>
+      <li><b>範疇外</b>一節是明確不做的事，不要自行補。</li>
+      <li>最近的變更：登入方式改為一次性驗證碼（OTP）、移除 2FA 備援碼、平台超管最少保留兩位。</li>
+    </ul>
+  </div>
+
+  <footer>內部使用。兩份文件如有出入，以「規格總覽」為準。</footer>
+</div>
+</body>
+</html>
